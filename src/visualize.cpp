@@ -33,3 +33,31 @@ int	main( void ) {
 
     return 0;
 }
+
+int	main(void)
+{
+	std::string	cmd;
+	PhoneBook	phonebook;
+
+	LOG("Welcome to your PhoneBook!");
+
+	// main loop
+	while (cmd != EXIT)
+	{
+		LOG("What would you like to do?");
+		LOG("(ADD, SEARCH, EXIT)");
+		std::cout << "> ";
+
+		// receive instruction
+		getline(std::cin, cmd);
+
+		// do each instruction
+		if (cmd == ADD)
+			phonebook.contact_add();
+		else if (cmd == SEARCH)
+			phonebook.contacts_search();
+		else if (cmd != EXIT)
+			LOG("Not a valid Command!");
+	}
+	return (0);
+}
